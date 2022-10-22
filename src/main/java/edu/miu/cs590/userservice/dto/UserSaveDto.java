@@ -1,7 +1,6 @@
 package edu.miu.cs590.userservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import edu.miu.cs590.userservice.enums.PaymentMethod;
 import edu.miu.cs590.userservice.enums.Role;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,10 +18,12 @@ public class UserSaveDto {
     private String email;
     @NotBlank
     private String password;
+    @NotBlank
+    private String firstName;
+    @NotBlank
+    private String lastName;
     @JsonIgnore
     private Role role = Role.USER;
-    @NotNull
-    private PaymentMethod paymentMethod;
     @NotBlank
     private String address1;
     private String address2;

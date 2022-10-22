@@ -10,7 +10,6 @@ import org.mapstruct.*;
 public interface UserSaveMapper {
 
     @Mappings({
-            @Mapping(target ="defaultPaymentMethod" ,source = "paymentMethod"),
             @Mapping(target ="password" ,source = "password",qualifiedByName = "encodePassword"),
             @Mapping(target ="address.address1" ,source = "address1"),
             @Mapping(target ="address.address2" ,source = "address2"),
@@ -22,7 +21,6 @@ public interface UserSaveMapper {
     User toEntity(UserSaveDto userSaveDto);
 
     @Mappings({
-            @Mapping(source ="defaultPaymentMethod" ,target = "paymentMethod"),
             @Mapping(source ="address.address1" ,target = "address1"),
             @Mapping(source ="address.address2" ,target = "address2"),
             @Mapping(source ="address.city" ,target = "city"),

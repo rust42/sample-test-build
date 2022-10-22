@@ -1,7 +1,6 @@
 package edu.miu.cs590.userservice.config;
 
 import edu.miu.cs590.userservice.dto.UserSaveDto;
-import edu.miu.cs590.userservice.enums.PaymentMethod;
 import edu.miu.cs590.userservice.enums.Role;
 import edu.miu.cs590.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,11 @@ public class LoadDataConfig implements CommandLineRunner {
         if(!userService.checkUser("admin@admin.com")){
             UserSaveDto userDto = new UserSaveDto();
             userDto.setEmail("admin@admin.com");
+            userDto.setFirstName("Adam");
+            userDto.setLastName("Admin");
+
             userDto.setPassword("admin@123");
             userDto.setRole(Role.ADMIN);
-            userDto.setPaymentMethod(PaymentMethod.BANK);
             userDto.setAddress1("1000N 4th St.");
             userDto.setCity("Fairfield");
             userDto.setState("IA");

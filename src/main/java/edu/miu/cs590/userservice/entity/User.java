@@ -1,6 +1,5 @@
 package edu.miu.cs590.userservice.entity;
 
-import edu.miu.cs590.userservice.enums.PaymentMethod;
 import edu.miu.cs590.userservice.enums.Role;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,12 +21,15 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
     @OneToOne(optional = false,orphanRemoval = true,cascade = {CascadeType.ALL})
     private Address address;
-
-    @Enumerated(EnumType.STRING)
-    private PaymentMethod defaultPaymentMethod;
 }

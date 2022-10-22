@@ -16,13 +16,13 @@ public class JwtTokenUtil {
     @Value("${jwt.secret}")
     private String jwtSecret;
 
-    public TokenDto generateAccessToken(Authentication authenticate) {
-        return TokenDto.builder().token(Jwts.builder()
+    public String generateAccessToken(Authentication authenticate) {
+        return Jwts.builder()
                 .setIssuer("org.miu.cs590")
                 .setSubject(authenticate.getName())
                 .claim("authorities",authenticate.getAuthorities())
                 .setIssuedAt(new Date())
                 .setExpiration(Date.from(Instant.now().plusSeconds(36000)))
-                .signWith(Keys.hmacShaKeyFor(jwtSecret.getBytes())).compact()).build();
+                .signWith(Keys.hmacShaKeyFor(jwtSecret.getBytes())).compact();
     }
 }
