@@ -31,7 +31,7 @@ public class SecurityConfig {
         return http.cors().and().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .addFilterAfter(jwtTokenFilter, BasicAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/login","/signup","/verify","/actuator/**", "/", "/health").permitAll()
+                .antMatchers("/api/auth/login","/api/auth/signup","/api/auth/verify","/actuator/**", "/", "/health").permitAll()
                 .antMatchers("/**").authenticated()
                 .anyRequest()
                 .authenticated().and().build();
