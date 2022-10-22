@@ -24,7 +24,7 @@ public class LoginController {
         this.jwtTokenUtil=jwtTokenUtil;
     }
 
-    @PostMapping("/login")
+    @PostMapping("/api/auth/login")
     ResponseEntity<? extends Object> login(@RequestBody @Valid LoginCredentialDto credentialDto){
         try{
             Authentication authenticate = authenticationManager.authenticate(

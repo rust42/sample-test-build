@@ -25,12 +25,12 @@ public class UserController {
         this.userDetailsService=userDetailsService;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/api/auth/signup")
     UserDto saveUser(@RequestBody @Valid UserSaveDto userSaveDto){
         return userService.saveUser(userSaveDto);
     }
 
-    @PostMapping("/verify")
+    @PostMapping("/api/auth/verify")
     Boolean verifyUserDetailsByUsername(@RequestBody @Valid UserVerifyDto userVerifyDto){
         UserDetails userDetails = userDetailsService.loadUserByUsername(userVerifyDto.getEmail());
         return userDetails!=null
